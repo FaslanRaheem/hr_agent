@@ -10,5 +10,8 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="HR AI System Backend")
 
+@app.get("/")
+def read_root():
+    return {"status": "ok", "message": "API is running! Visit /docs for the Swagger UI."}
 
 app.include_router(auth.router)
